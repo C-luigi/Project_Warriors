@@ -17,9 +17,9 @@ public class Menu {
         return scanner.nextInt();
     }
 
-    
 
-    public void createCharacter(){
+
+    public String createCharacter(){
         boolean onOff;
         System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
         int characterType = this.readOption();
@@ -33,8 +33,10 @@ public class Menu {
             int seeSheet = this.readOption();
             if (seeSheet == 1){
                 System.out.println(character.toString());
+                return character.toString();
             } else if (seeSheet == 2) {
                 onOff = false;
+                return character.toString();
             } else if (seeSheet == 3) {
                 System.out.println("modfier en cours de fabrication");
             }
@@ -48,8 +50,10 @@ public class Menu {
             int seeSheet = this.readOption();
             if (seeSheet == 1){
                 System.out.println(character.toString());
+                return character.toString();
             } else if (seeSheet == 2) {
                 onOff = false;
+                return character.toString();
             } else if (seeSheet == 3) {
                 System.out.println("modfier en cours de fabrication");
             }
@@ -57,6 +61,7 @@ public class Menu {
         else {
             System.out.println("Invalid option. Please try again");
         }
+        return "";
     }
 
     public Warrior createWarrior() {
