@@ -14,8 +14,8 @@ public class Main {
                     System.out.println("please create a character");
                 }
                 else {
-                    Game game = new Game(64);
-                    game.startGame(character);
+                    Game game = new Game(64, character);
+                    game.startGame();
                 }
             }
             else if (option == 3) {
