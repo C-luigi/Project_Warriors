@@ -9,7 +9,8 @@ public class Menu {
 
     public void printOption() {
         System.out.println("1. Create a new character");
-        System.out.println("2. left the game");
+        System.out.println("2. start the game");
+        System.out.println("3. left the game");
     }
 
     public int readOption() {
@@ -20,31 +21,40 @@ public class Menu {
         boolean onOff;
         System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
         int characterType = this.readOption();
+
         if (characterType == 1) {
             Warrior character = this.createWarrior();
-            System.out.println("Warrior created !!!");
+            System.out.println("Warrior created stuff them !!!");
+            Weapon actualWeapon = this.createWeapon();
+            System.out.println("Stuff created !!!");
             System.out.println("Would you like to see your stats ? \r\n 1:Yes 2:No 3:Modify");
-            int option = this.readOption();
-            if (option == 1){
+            int seeStats = this.readOption();
+            if (seeStats == 1){
                 System.out.println(character.toString());
-            } else if (option == 2) {
+                System.out.println(actualWeapon.toString());
+            } else if (seeStats == 2) {
                 onOff = false;
-            } else if (option == 3) {
+            } else if (seeStats == 3) {
                 System.out.println("modfier en cours de fabrication");
             }
-        } else if (characterType == 2) {
+        }
+        else if (characterType == 2) {
             Magician character = this.createMagician();
             System.out.println("Magician created !!!");
+            Spell actualWeapon = this.creataSpell();
+            System.out.println("Stuff created !!!");
             System.out.println("Would you like to see your stats ? \r\n 1:Yes 2:No 3:Modify");
-            int option = this.readOption();
-            if (option == 1){
+            int seeStats = this.readOption();
+            if (seeStats == 1){
                 System.out.println(character.toString());
-            } else if (option == 2) {
+                System.out.println(actualWeapon.toString());
+            } else if (seeStats == 2) {
                 onOff = false;
-            } else if (option == 3) {
+            } else if (seeStats == 3) {
                 System.out.println("modfier en cours de fabrication");
             }
-        } else {
+        }
+        else {
             System.out.println("Invalid option. Please try again");
         }
     }
@@ -72,4 +82,25 @@ public class Menu {
 
         return new Magician(name, healthPoints, strongPoints);
     }
+
+    public Weapon createWeapon() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the name of weapon :");
+        String nameWeapon = scanner.nextLine();
+        System.out.println("Enter the damage of weapon :");
+        int damagePoints = scanner.nextInt();
+
+        return new Weapon(nameWeapon, damagePoints);
+    }
+
+    public Spell creataSpell() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the name of spell :");
+        String nameSpell = scanner.nextLine();
+        System.out.println("Enter the damage of spell :");
+        int damagePoints = scanner.nextInt();
+
+        return new Spell(nameSpell, damagePoints);
+    }
+
 }

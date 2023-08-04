@@ -12,6 +12,9 @@ public class Main {
                 menu.createCharacter();
             }
             else if (option == 2) {
+                System.out.println("ça arrive");
+            }
+            else if (option == 3) {
                 onOff = false;
             }
             else {
