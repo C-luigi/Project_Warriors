@@ -3,8 +3,9 @@ public class Magician{
     protected String name;
     protected int healthPoints;
     protected int strongPoints;
+    protected Spell spell;
 
-    public Magician(String name, int healthPoints, int strongPoints) {
+    public Magician(String name, int healthPoints, int strongPoints, Spell spell) {
         this.name = name;
         this.healthPoints = healthPoints;
         this.strongPoints = strongPoints;
@@ -34,12 +35,21 @@ public class Magician{
         this.strongPoints = strongPoints;
     }
 
+    public Spell getSpell() {
+        return spell;
+    }
+
+    public void setSpell(Spell spell) {
+        this.spell = spell;
+    }
+
     @Override
     public String toString() {
         return "Magician:" + '\n' +
                 "Name : " + name + '\n' +
                 "HealthPoints = " + healthPoints +  '\n' +
-                "StrongPoints = " + strongPoints +  '\n';
+                "StrongPoints = " + strongPoints +  '\n' +
+                spell;
     }
 
 }

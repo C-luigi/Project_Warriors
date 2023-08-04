@@ -17,6 +17,8 @@ public class Menu {
         return scanner.nextInt();
     }
 
+    
+
     public void createCharacter(){
         boolean onOff;
         System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
@@ -24,33 +26,31 @@ public class Menu {
 
         if (characterType == 1) {
             Warrior character = this.createWarrior();
-            System.out.println("Warrior created stuff them !!!");
             Weapon actualWeapon = this.createWeapon();
-            System.out.println("Stuff created !!!");
-            System.out.println("Would you like to see your stats ? \r\n 1:Yes 2:No 3:Modify");
-            int seeStats = this.readOption();
-            if (seeStats == 1){
+            character.setWeapon(actualWeapon);
+            System.out.println("Warrior created !!!");
+            System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
+            int seeSheet = this.readOption();
+            if (seeSheet == 1){
                 System.out.println(character.toString());
-                System.out.println(actualWeapon.toString());
-            } else if (seeStats == 2) {
+            } else if (seeSheet == 2) {
                 onOff = false;
-            } else if (seeStats == 3) {
+            } else if (seeSheet == 3) {
                 System.out.println("modfier en cours de fabrication");
             }
         }
         else if (characterType == 2) {
             Magician character = this.createMagician();
-            System.out.println("Magician created !!!");
             Spell actualWeapon = this.creataSpell();
-            System.out.println("Stuff created !!!");
-            System.out.println("Would you like to see your stats ? \r\n 1:Yes 2:No 3:Modify");
-            int seeStats = this.readOption();
-            if (seeStats == 1){
+            character.setSpell(actualWeapon);
+            System.out.println("Magician created !!!");
+            System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
+            int seeSheet = this.readOption();
+            if (seeSheet == 1){
                 System.out.println(character.toString());
-                System.out.println(actualWeapon.toString());
-            } else if (seeStats == 2) {
+            } else if (seeSheet == 2) {
                 onOff = false;
-            } else if (seeStats == 3) {
+            } else if (seeSheet == 3) {
                 System.out.println("modfier en cours de fabrication");
             }
         }
@@ -67,8 +67,10 @@ public class Menu {
         int healthPoints = scanner.nextInt();
         System.out.println("Enter the Warrior's attack strength:");
         int strongPoints = scanner.nextInt();
+        String weapon = "weapon not defineted";
+        Weapon actualWeapon = new Weapon("fist",0);
 
-        return new Warrior(name, healthPoints, strongPoints);
+        return new Warrior(name, healthPoints, strongPoints, actualWeapon);
     }
 
     public Magician createMagician() {
@@ -79,8 +81,9 @@ public class Menu {
         int healthPoints = scanner.nextInt();
         System.out.println("Enter the Magician's attack strength:");
         int strongPoints = scanner.nextInt();
+        Spell actualWeapon = new Spell("fist",0);
 
-        return new Magician(name, healthPoints, strongPoints);
+        return new Magician(name, healthPoints, strongPoints, actualWeapon);
     }
 
     public Weapon createWeapon() {

@@ -3,8 +3,9 @@ public class Warrior {
     protected String name;
     protected int healthPoints;
     protected int strongPoints;
+    protected Weapon weapon;
 
-    public Warrior(String name, int healthPoints, int strongPoints) {
+    public Warrior(String name, int healthPoints, int strongPoints, Weapon weapon) {
         this.name = name;
         this.healthPoints = healthPoints;
         this.strongPoints = strongPoints;
@@ -34,12 +35,21 @@ public class Warrior {
         this.strongPoints = strongPoints;
     }
 
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
     @Override
     public String toString() {
         return "Warrior:" + '\n' +
                 "Name : " + name + '\n' +
                 "HealthPoints = " + healthPoints +  '\n' +
-                "StrongPoints = " + strongPoints+  '\n';
+                "StrongPoints = " + strongPoints+  '\n' +
+                weapon;
     }
 
 }
