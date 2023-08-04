@@ -43,7 +43,6 @@ public class Magician{
         this.spell = spell;
     }
 
-    @Override
     public String toString() {
         return "Magician:" + '\n' +
                 "Name : " + name + '\n' +

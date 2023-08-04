@@ -43,7 +43,6 @@ public class Warrior {
         this.weapon = weapon;
     }
 
-    @Override
     public String toString() {
         return "Warrior:" + '\n' +
                 "Name : " + name + '\n' +

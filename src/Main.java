@@ -10,8 +10,13 @@ public class Main {
                 character = menu.createCharacter();
             }
             else if (option == 2) {
-                Game game = new Game(64);
-                game.startGame(character);
+                if (character.equals("")) {
+                    System.out.println("please create a character");
+                }
+                else {
+                    Game game = new Game(64);
+                    game.startGame(character);
+                }
             }
             else if (option == 3) {
                 onOff = false;
