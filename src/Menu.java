@@ -21,7 +21,6 @@ public class Menu {
         System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
         int characterType = this.readOption();
         String characterSheet = "";
-
         if (characterType == 1) {
             Warrior character = this.createWarrior();
             character.setWeapon(this.createWeapon());
@@ -38,34 +37,22 @@ public class Menu {
         return characterSheet;
     }
 
-    public String handleCharacterSheet(Warrior character) {
-        System.out.println(character.getClass().getSimpleName() + " created !!!");
-        System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
-        int seeSheet = this.readOption();
-        String characterSheet = character.toString();
-
-        if (seeSheet == 1 || seeSheet == 2) {
-            System.out.println(characterSheet);
-        } else if (seeSheet == 3) {
-            System.out.println("Modification feature is under construction");
+    public String handleCharacterSheet(Object character) {
+        if (character instanceof Warrior || character instanceof Magician) {
+            System.out.println(character.getClass().getSimpleName() + " created !!!");
+            System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
+            int seeSheet = this.readOption();
+            String characterSheet = character.toString();
+            if (seeSheet == 1 || seeSheet == 2) {
+                System.out.println(characterSheet);
+            } else if (seeSheet == 3) {
+                System.out.println("Modification feature is under construction");
+            }
+            return characterSheet;
         }
-
-        return characterSheet;
-    }
-
-    public String handleCharacterSheet(Magician character) {
-        System.out.println(character.getClass().getSimpleName() + " created !!!");
-        System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
-        int seeSheet = this.readOption();
-        String characterSheet = character.toString();
-
-        if (seeSheet == 1 || seeSheet == 2) {
-            System.out.println(characterSheet);
-        } else if (seeSheet == 3) {
-            System.out.println("Modification feature is under construction");
+        else{
+            return "Unknown character type.";
         }
-
-        return characterSheet;
     }
 
     public Warrior createWarrior() {
