@@ -1,6 +1,16 @@
 public class Warrior extends Character {
     private Weapon weapon;
 
+    public Warrior() {
+        super();
+        this.weapon = new Weapon("sword",2);
+    }
+
+    public Warrior(String name) {
+        super(name);
+        this.weapon = new Weapon("sword",2);
+    }
+
     public Warrior(String name, int healthPoints, int strongPoints, Weapon weapon) {
         super(name, healthPoints, strongPoints);
         this.weapon = weapon;

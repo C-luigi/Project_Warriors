@@ -1,7 +1,14 @@
 public abstract class Character {
-    protected String name;
-    protected int healthPoints;
-    protected int strongPoints;
+    protected String name = "billy";
+    protected int healthPoints = 5;
+    protected int strongPoints = 8;
+
+    public Character() {
+    }
+
+    public Character(String name) {
+        this.name = name;
+    }
 
     public Character(String name, int healthPoints, int strongPoints) {
         this.name = name;

@@ -1,6 +1,17 @@
 public class Magician extends Character {
     private Spell spell;
 
+    public Magician() {
+        super();
+        this.spell = new Spell("spark",2);
+    }
+
+    public Magician(String name) {
+        super(name);
+        this.spell = new Spell("spark",2);
+    }
+
+
     public Magician(String name, int healthPoints, int strongPoints, Spell spell) {
         super(name, healthPoints, strongPoints);
         this.spell = spell;
