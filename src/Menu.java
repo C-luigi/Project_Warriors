@@ -17,65 +17,67 @@ public class Menu {
         return scanner.nextInt();
     }
 
-
-
     public String createCharacter(){
-        boolean onOff;
         System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
         int characterType = this.readOption();
+        String characterSheet = "";
 
         if (characterType == 1) {
             Warrior character = this.createWarrior();
-            Weapon actualWeapon = this.createWeapon();
-            character.setWeapon(actualWeapon);
-            System.out.println("Warrior created !!!");
-            System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
-            int seeSheet = this.readOption();
-            if (seeSheet == 1){
-                System.out.println(character.toString());
-                return character.toString();
-            } else if (seeSheet == 2) {
-                onOff = false;
-                return character.toString();
-            } else if (seeSheet == 3) {
-                System.out.println("modfier en cours de fabrication");
-            }
+            character.setWeapon(this.createWeapon());
+            characterSheet = handleCharacterSheet(character);
         }
         else if (characterType == 2) {
             Magician character = this.createMagician();
-            Spell actualWeapon = this.creataSpell();
-            character.setSpell(actualWeapon);
-            System.out.println("Magician created !!!");
-            System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
-            int seeSheet = this.readOption();
-            if (seeSheet == 1){
-                System.out.println(character.toString());
-                return character.toString();
-            } else if (seeSheet == 2) {
-                onOff = false;
-                return character.toString();
-            } else if (seeSheet == 3) {
-                System.out.println("modfier en cours de fabrication");
-            }
+            character.setSpell(this.createSpell());
+            characterSheet = handleCharacterSheet(character);
         }
         else {
             System.out.println("Invalid option. Please try again");
         }
-        return "";
+        return characterSheet;
+    }
+
+    public String handleCharacterSheet(Warrior character) {
+        System.out.println(character.getClass().getSimpleName() + " created !!!");
+        System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
+        int seeSheet = this.readOption();
+        String characterSheet = character.toString();
+
+        if (seeSheet == 1 || seeSheet == 2) {
+            System.out.println(characterSheet);
+        } else if (seeSheet == 3) {
+            System.out.println("Modification feature is under construction");
+        }
+
+        return characterSheet;
+    }
+
+    public String handleCharacterSheet(Magician character) {
+        System.out.println(character.getClass().getSimpleName() + " created !!!");
+        System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
+        int seeSheet = this.readOption();
+        String characterSheet = character.toString();
+
+        if (seeSheet == 1 || seeSheet == 2) {
+            System.out.println(characterSheet);
+        } else if (seeSheet == 3) {
+            System.out.println("Modification feature is under construction");
+        }
+
+        return characterSheet;
     }
 
     public Warrior createWarrior() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the name of Warrior's:");
+        System.out.println("Enter the name of Warrior:");
         String name = scanner.nextLine();
         System.out.println("Enter the Warrior's standard of living:");
         int healthPoints = scanner.nextInt();
         System.out.println("Enter the Warrior's attack strength:");
         int strongPoints = scanner.nextInt();
-        String weapon = "weapon not defineted";
-        Weapon actualWeapon = new Weapon("fist",0);
 
-        return new Warrior(name, healthPoints, strongPoints, actualWeapon);
+        return new Warrior(name, healthPoints, strongPoints, new Weapon("fist",0));
     }
 
     public Magician createMagician() {
@@ -86,9 +88,8 @@ public class Menu {
         int healthPoints = scanner.nextInt();
         System.out.println("Enter the Magician's attack strength:");
         int strongPoints = scanner.nextInt();
-        Spell actualWeapon = new Spell("fist",0);
 
-        return new Magician(name, healthPoints, strongPoints, actualWeapon);
+        return new Magician(name, healthPoints, strongPoints, new Spell("fist",0));
     }
 
     public Weapon createWeapon() {
@@ -101,7 +102,7 @@ public class Menu {
         return new Weapon(nameWeapon, damagePoints);
     }
 
-    public Spell creataSpell() {
+    public Spell createSpell() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the name of spell :");
         String nameSpell = scanner.nextLine();
@@ -110,5 +111,4 @@ public class Menu {
 
         return new Spell(nameSpell, damagePoints);
     }
-
 }
