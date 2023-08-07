@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Menu {
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public Menu() {
         this.scanner = new Scanner(System.in);
@@ -59,10 +59,18 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the name of Warrior:");
         String name = scanner.nextLine();
-        System.out.println("Enter the Warrior's standard of living:");
-        int healthPoints = scanner.nextInt();
-        System.out.println("Enter the Warrior's attack strength:");
-        int strongPoints = scanner.nextInt();
+        int healthPoints = 0;
+        System.out.println("Enter the Warrior standard of living (between 5 and 10):");
+        while (healthPoints < 5 || healthPoints > 10) {
+            healthPoints = scanner.nextInt();
+            System.out.println("Invalid input! Please enter a value between 5 and 10.");
+        }
+        int strongPoints = 0;
+        System.out.println("Enter the Warrior attack strength (between 5 and 10):");
+        while (strongPoints < 5 || strongPoints > 10) {
+            strongPoints = scanner.nextInt();
+            System.out.println("Invalid input! Please enter a value between 5 and 10.");
+        }
 
         return new Warrior(name, healthPoints, strongPoints, new Weapon("fist",0));
     }
@@ -71,10 +79,18 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the name of the Magician:");
         String name = scanner.nextLine();
-        System.out.println("Enter the Magician's standard of living:");
-        int healthPoints = scanner.nextInt();
-        System.out.println("Enter the Magician's attack strength:");
-        int strongPoints = scanner.nextInt();
+        int healthPoints = 0;
+        System.out.println("Enter the Magician standard of living (between 3 and 6):");
+        while (healthPoints < 3 || healthPoints > 6) {
+            healthPoints = scanner.nextInt();
+            System.out.println("Invalid input! Please enter a value between 3 and 6.");
+        }
+        int strongPoints = 0;
+        System.out.println("Enter the Magician attack strength (between 8 and 15):");
+        while (strongPoints < 8 || strongPoints > 15) {
+            strongPoints = scanner.nextInt();
+            System.out.println("Invalid input! Please enter a value between 8 and 15.");
+        }
 
         return new Magician(name, healthPoints, strongPoints, new Spell("fist",0));
     }

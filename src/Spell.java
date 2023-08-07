@@ -23,7 +23,6 @@ public class Spell {
         this.damagePoints = damagePoints;
     }
 
-    @Override
     public String toString() {
         return "Equipment:" + '\n' +
                 "Spell name : " + nameSpell + '\n' +

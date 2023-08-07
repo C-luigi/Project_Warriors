@@ -25,7 +25,7 @@ public class Weapon {
         this.damagePoints = damagePoints;
     }
 
-    @Override
+
     public String toString() {
         return "Equipment:" + '\n' +
                 "Weapon name : " + nameWeapon + '\n' +
