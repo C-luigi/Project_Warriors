@@ -1,3 +1,6 @@
+package fr.campusnumerique.pw.character;
+import fr.campusnumerique.pw.boardgame.Spell;
+
 public class Magician extends Character {
     private Spell spell;
 

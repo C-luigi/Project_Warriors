@@ -1,3 +1,5 @@
+package fr.campusnumerique.pw.boardgame;
+
 public class Weapon {
     protected String nameWeapon;
     protected int damagePoints;
@@ -29,7 +31,7 @@ public class Weapon {
 
     public String toString() {
         return "Equipment:" + '\n' +
-                "Weapon name : " + nameWeapon + '\n' +
+                "fr.campusnumerique.pw.boardgame.Weapon name : " + nameWeapon + '\n' +
                 "damage Points = " + damagePoints +  '\n' +
                 "Shield : " + shield;
     }

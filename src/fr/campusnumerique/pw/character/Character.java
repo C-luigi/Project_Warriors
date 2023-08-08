@@ -1,3 +1,5 @@
+package fr.campusnumerique.pw.character;
+
 public abstract class Character {
     protected String name;
     protected int healthPoints;
@@ -45,7 +47,7 @@ public abstract class Character {
     }
 
     public String toString() {
-        return "Character:" + '\n' +
+        return "fr.campusnumerique.pj.character.Character:" + '\n' +
                 "Name : " + name + '\n' +
                 "HealthPoints = " + healthPoints +  '\n' +
                 "StrongPoints = " + strongPoints;

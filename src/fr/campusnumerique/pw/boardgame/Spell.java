@@ -1,3 +1,5 @@
+package fr.campusnumerique.pw.boardgame;
+
 public class Spell {
     protected String nameSpell;
     protected int damagePoints;
@@ -26,7 +28,7 @@ public class Spell {
 
     public String toString() {
         return "Equipment:" + '\n' +
-                "Spell name : " + nameSpell + '\n' +
+                "fr.campusnumerique.pw.boardgame.Spell name : " + nameSpell + '\n' +
                 "damage Points = " + damagePoints +  '\n' +
                 "Philtre : " + philtre;
     }
