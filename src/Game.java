@@ -11,10 +11,6 @@ public class Game {
         this.currentPosition = 1;
     }
 
-    public int getBoardSize() {
-        return boardSize;
-    }
-
     public int roll(){
         Random rand = new Random();
         int roll = rand.nextInt(6) + 1;
@@ -33,7 +29,7 @@ public class Game {
         Menu menu = new Menu();
         while (true) {
             System.out.println("Press any touch and press enter for play");
-            menu.readOption();
+            menu.readInputString();
             int roll = roll();
             System.out.println("You rolled a " + roll);
             try {
@@ -43,7 +39,7 @@ public class Game {
                 System.out.println(e.getMessage());
                 System.out.println("Congratulations to you! You've reached the end of the board!");
                 System.out.println("Would you like to start the game again ? \r\n 1: Yes 2: No");
-                int option = menu.readOption();
+                int option = menu.readInputInt();
                 if (option == 1) {
                     currentPosition = 1;
                     System.out.println("The game restart");

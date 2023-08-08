@@ -1,10 +1,11 @@
 public class Spell {
     protected String nameSpell;
     protected int damagePoints;
-    protected String philtre = "Bitos mana potion";
+    protected String philtre;
     public Spell(String nameSpell, int damagePoints) {
         this.nameSpell = nameSpell;
         this.damagePoints = damagePoints;
+        this.philtre = "Bitos mana potion";
     }
 
     public String getNameSpell() {

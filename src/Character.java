@@ -1,12 +1,16 @@
 public abstract class Character {
-    protected String name = "billy";
-    protected int healthPoints = 5;
-    protected int strongPoints = 8;
+    protected String name;
+    protected int healthPoints;
+    protected int strongPoints;
 
     public Character() {
+        this.name = "bobby";
+        this.healthPoints = 5;
+        this.strongPoints = 8;
     }
 
     public Character(String name) {
+        this();
         this.name = name;
     }
 

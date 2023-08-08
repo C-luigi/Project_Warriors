@@ -5,7 +5,7 @@ public class Main {
         String character = "";
         while (onOff) {
             menu.printOption();
-            int option = menu.readOption();
+            int option = menu.readInputInt();
             if (option == 1) {
                 character = menu.createCharacter();
             }

@@ -2,11 +2,12 @@ public class Weapon {
     protected String nameWeapon;
     protected int damagePoints;
 
-    protected String shield = "grass crest shield";
+    protected String shield;
 
     public Weapon(String nameWeapon, int damagePoints) {
         this.nameWeapon = nameWeapon;
         this.damagePoints = damagePoints;
+        this.shield = "grass crest shield";
     }
 
     public String getNameWeapon() {
