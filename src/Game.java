@@ -1,20 +1,22 @@
+import fr.campusnumerique.pw.dice.Dice;
+
 import java.util.Random;
 public class Game {
 
-    private int boardSize;
-    private String character;
+    private final int boardSize;
+    private final String character;
     private int currentPosition;
+    private final Dice dice;
 
-    public Game(int boardSize, String character) {
+    public Game(int boardSize, String character, Dice dice) {
         this.boardSize = boardSize;
         this.character = character;
         this.currentPosition = 1;
+        this.dice = dice;
     }
 
     public int roll(){
-        Random rand = new Random();
-        int roll = rand.nextInt(6) + 1;
-        return roll;
+        return dice.roll();
     }
 
     public void move(int steps) throws CharacterOutOfBoardException {

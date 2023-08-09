@@ -1,3 +1,6 @@
+import fr.campusnumerique.pw.dice.Dice;
+import fr.campusnumerique.pw.dice.DieEightFace;
+
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
@@ -10,11 +13,12 @@ public class Main {
                 character = menu.createCharacter();
             }
             else if (option == 2) {
-                if (character.equals("")) {
+                if (character.isEmpty()) {
                     System.out.println("please create a character");
                 }
                 else {
-                    Game game = new Game(64, character);
+                    Dice dice = new DieEightFace();
+                    Game game = new Game(64, character,dice);
                     game.startGame();
                 }
             }

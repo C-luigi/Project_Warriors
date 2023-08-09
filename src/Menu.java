@@ -25,7 +25,7 @@ public class Menu {
     }
 
     public String createCharacter(){
-        System.out.println("What type of character would you like to create? \r\n 1: fr.campusnumerique.pj.character.Warrior 2: fr.campusnumerique.pj.character.Magician");
+        System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
         int characterType = this.readInputInt();
         String characterSheet = "";
         if (characterType == 1) {
@@ -47,7 +47,7 @@ public class Menu {
     public String handleCharacterSheet(Character character) {
         if (character instanceof Warrior || character instanceof Magician) {
             int seeSheet;
-            String characterSheet = character.toString();
+            String characterSheet;
             do {
                 System.out.println(character.getClass().getSimpleName() + " created !!!");
                 System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
@@ -71,10 +71,10 @@ public class Menu {
     }
 
     public Warrior createWarrior() {
-        System.out.println("Enter the name of fr.campusnumerique.pj.character.Warrior:");
+        System.out.println("Enter the name of Warrior:");
         String name = this.readInputString();
         int healthPoints = 0;
-        System.out.println("Enter the fr.campusnumerique.pj.character.Warrior standard of living (between 5 and 10):");
+        System.out.println("Enter the Warrior standard of living (between 5 and 10):");
         while (healthPoints < 5 || healthPoints > 10) {
             healthPoints = this.readInputInt();
             if (healthPoints < 5 || healthPoints > 10) {
@@ -82,7 +82,7 @@ public class Menu {
             }
         }
         int strongPoints = 0;
-        System.out.println("Enter the fr.campusnumerique.pj.character.Warrior attack strength (between 5 and 10):");
+        System.out.println("Enter the Warrior attack strength (between 5 and 10):");
         while (strongPoints < 5 || strongPoints > 10) {
             strongPoints = this.readInputInt();
             if (strongPoints < 5 || strongPoints > 10) {
@@ -93,10 +93,10 @@ public class Menu {
     }
 
     public Magician createMagician() {
-        System.out.println("Enter the name of the fr.campusnumerique.pj.character.Magician:");
+        System.out.println("Enter the name of the Magician:");
         String name = this.readInputString();
         int healthPoints = 0;
-        System.out.println("Enter the fr.campusnumerique.pj.character.Magician standard of living (between 3 and 6):");
+        System.out.println("Enter the Magician standard of living (between 3 and 6):");
         while (healthPoints < 3 || healthPoints > 6) {
             healthPoints = this.readInputInt();
             if (healthPoints < 3 || healthPoints > 6) {
@@ -104,7 +104,7 @@ public class Menu {
             }
         }
         int strongPoints = 0;
-        System.out.println("Enter the fr.campusnumerique.pj.character.Magician attack strength (between 8 and 15):");
+        System.out.println("Enter the Magician attack strength (between 8 and 15):");
         while (strongPoints < 8 || strongPoints > 15) {
             strongPoints = this.readInputInt();
             if (strongPoints < 8 || strongPoints > 15) {
@@ -134,11 +134,12 @@ public class Menu {
     }
 
     public void modifyCharacter(Character character) {
-        System.out.println("What would you like to modify?"+ '\n' +
-                "1. Name"+ '\n' +
-                "2. Standard of Living"+ '\n' +
-                "3. Attack Strength"+ '\n' +
-                "4. fr.campusnumerique.pw.boardgame.Weapon");
+        System.out.println(
+                "What would you like to modify?" + '\n' +
+                        "1. Name" + '\n' +
+                        "2. Standard of Living" +  '\n' +
+                        "3. Attack Strength" +  '\n' +
+                        "4. Weapon");
 
         int option = this.readInputInt();
         switch(option) {
