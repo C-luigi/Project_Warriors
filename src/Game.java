@@ -1,16 +1,15 @@
+import fr.campusnumerique.pw.boardgame.Board;
 import fr.campusnumerique.pw.dice.Dice;
 
 public class Game {
 
-    private final int boardSize;
+    private final Board board;
     private final String character;
-    private int currentPosition;
     private final Dice dice;
 
-    public Game(int boardSize, String character, Dice dice) {
-        this.boardSize = boardSize;
+    public Game(Board board, String character, Dice dice) {
+        this.board = board;
         this.character = character;
-        this.currentPosition = 1;
         this.dice = dice;
     }
 
@@ -18,9 +17,11 @@ public class Game {
     public void move() throws CharacterOutOfBoardException {
         int steps = dice.roll();
         System.out.println("You rolled a " + steps);
-        this.currentPosition += steps;
-        if (this.currentPosition >= boardSize) {
+
+        if (board.getPlayerPosition() + steps >= board.getBoardSize()) {
             throw new CharacterOutOfBoardException("The character has moved off the board");
+        } else {
+            board.movePlayer(steps);
         }
     }
 
@@ -32,14 +33,14 @@ public class Game {
             menu.readInputString();
             try {
                 move();
-                System.out.println(character + " is now at square " + currentPosition + " / " + boardSize);
+                System.out.println(character + '\n' + " is now at square " + board.getPlayerPosition() + " / " + board.getBoardSize());
             } catch (CharacterOutOfBoardException e) {
                 System.out.println(e.getMessage());
                 System.out.println("Congratulations to you! You've reached the end of the board!");
                 System.out.println("Would you like to start the game again ? \r\n 1: Yes 2: No");
                 int option = menu.readInputInt();
                 if (option == 1) {
-                    currentPosition = 1;
+                    board.setPlayerPosition(0);
                     System.out.println("The game restart");
                 }
                 else if (option == 2){

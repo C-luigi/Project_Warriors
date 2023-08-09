@@ -47,7 +47,8 @@ public abstract class Character {
     }
 
     public String toString() {
-        return "Character:" + '\n' +
+        return "------------------------------" +  '\n' +
+                "Character:" + '\n' +
                 "Name : " + name + '\n' +
                 "HealthPoints = " + healthPoints +  '\n' +
                 "StrongPoints = " + strongPoints;

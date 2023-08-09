@@ -36,7 +36,7 @@ public class Spell extends Case{
 
     public String toString() {
         return "Equipment:" + '\n' +
-                "fr.campusnumerique.pw.boardgame.Spell name : " + nameSpell + '\n' +
+                "name : " + nameSpell + '\n' +
                 "damage Points = " + damagePoints +  '\n' +
                 "Philtre : " + philtre;
     }

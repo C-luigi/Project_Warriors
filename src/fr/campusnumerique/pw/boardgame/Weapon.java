@@ -38,7 +38,7 @@ public class Weapon extends Case{
 
     public String toString() {
         return "Equipment:" + '\n' +
-                "fr.campusnumerique.pw.boardgame.Weapon name : " + nameWeapon + '\n' +
+                "Weapon : " + nameWeapon + '\n' +
                 "damage Points = " + damagePoints +  '\n' +
                 "Shield : " + shield;
     }

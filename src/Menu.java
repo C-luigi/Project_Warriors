@@ -1,3 +1,4 @@
+import fr.campusnumerique.pw.boardgame.Board;
 import fr.campusnumerique.pw.boardgame.Spell;
 import fr.campusnumerique.pw.boardgame.Weapon;
 import fr.campusnumerique.pw.character.Character;
@@ -5,6 +6,7 @@ import fr.campusnumerique.pw.character.Magician;
 import fr.campusnumerique.pw.character.Warrior;
 import fr.campusnumerique.pw.dice.Dice;
 import fr.campusnumerique.pw.dice.DieEightFace;
+import fr.campusnumerique.pw.dice.PipeDie;
 
 import java.util.Scanner;
 
@@ -30,8 +32,9 @@ public class Menu {
                     System.out.println("please create a character");
                 }
                 else {
-                    Dice dice = new DieEightFace();
-                    Game game = new Game(64, character,dice);
+                    Dice dice = new PipeDie();
+                    Board board = new Board();
+                    Game game = new Game(board, character,dice);
                     game.startGame();
                 }
             }
