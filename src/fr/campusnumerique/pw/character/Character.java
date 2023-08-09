@@ -47,7 +47,7 @@ public abstract class Character {
     }
 
     public String toString() {
-        return "fr.campusnumerique.pj.character.Character:" + '\n' +
+        return "Character:" + '\n' +
                 "Name : " + name + '\n' +
                 "HealthPoints = " + healthPoints +  '\n' +
                 "StrongPoints = " + strongPoints;

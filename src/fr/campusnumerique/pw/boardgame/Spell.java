@@ -1,6 +1,8 @@
 package fr.campusnumerique.pw.boardgame;
 
-public class Spell {
+import java.util.ArrayList;
+
+public class Spell extends Case{
     protected String nameSpell;
     protected int damagePoints;
     protected String philtre;
@@ -24,6 +26,12 @@ public class Spell {
 
     public void setDamagePoints(int damagePoints) {
         this.damagePoints = damagePoints;
+    }
+
+    public void listDefaultSpell(){
+        ArrayList<Spell> listSpell = new ArrayList<>();
+        listSpell.add(new Spell("Lightning",3));
+        listSpell.add(new Spell("Fire ball",5));
     }
 
     public String toString() {

@@ -1,6 +1,8 @@
 package fr.campusnumerique.pw.boardgame;
 
-public class Weapon {
+import java.util.ArrayList;
+
+public class Weapon extends Case{
     protected String nameWeapon;
     protected int damagePoints;
 
@@ -28,6 +30,11 @@ public class Weapon {
         this.damagePoints = damagePoints;
     }
 
+    public void listDefaultWeapon(){
+        ArrayList<Weapon> listWeapon = new ArrayList<>();
+        listWeapon.add(new Weapon("Sledgehammer",3));
+        listWeapon.add(new Weapon("Sword",5));
+    }
 
     public String toString() {
         return "Equipment:" + '\n' +
