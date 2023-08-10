@@ -1,5 +1,7 @@
 package fr.campusnumerique.pw.boardgame;
 
+import fr.campusnumerique.pw.boardgame.crate.potion.Potion;
+
 import java.util.ArrayList;
 
 public class Board {
