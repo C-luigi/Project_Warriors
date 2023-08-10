@@ -13,7 +13,6 @@ public class Board {
         cases.add(new EmptyCase());
         cases.add(new Enemy("Goblin",10,10));
         cases.add(new Weapon("Sword",10));
-        cases.add(new Potion("heal",10));
         this.playerPosition = 0;
     }
 
