@@ -1,12 +1,8 @@
-import fr.campusnumerique.pw.boardgame.Board;
 import fr.campusnumerique.pw.boardgame.Spell;
 import fr.campusnumerique.pw.boardgame.Weapon;
 import fr.campusnumerique.pw.character.Character;
 import fr.campusnumerique.pw.character.Magician;
 import fr.campusnumerique.pw.character.Warrior;
-import fr.campusnumerique.pw.dice.Dice;
-import fr.campusnumerique.pw.dice.DieEightFace;
-import fr.campusnumerique.pw.dice.PipeDie;
 
 import java.util.Scanner;
 
@@ -17,34 +13,6 @@ public class Menu {
         System.out.println("1. Create a new character");
         System.out.println("2. start the game");
         System.out.println("3. left the game");
-    }
-    public void startMenu(){
-        boolean onOff = true;
-        String character = "";
-        while (onOff) {
-            this.printOption();
-            int option = this.readInputInt();
-            if (option == 1) {
-                character = this.createCharacter();
-            }
-            else if (option == 2) {
-                if (character.isEmpty()) {
-                    System.out.println("please create a character");
-                }
-                else {
-                    Dice dice = new PipeDie();
-                    Board board = new Board();
-                    Game game = new Game(board, character,dice);
-                    game.startGame();
-                }
-            }
-            else if (option == 3) {
-                onOff = false;
-            }
-            else {
-                System.out.println("Invalid option. Please try again");
-            }
-        }
     }
 
     public int readInputInt() {
