@@ -2,9 +2,7 @@ package fr.campusnumerique.pw.boardgame.crate;
 
 import fr.campusnumerique.pw.boardgame.Square;
 import fr.campusnumerique.pw.boardgame.crate.equipment.*;
-import fr.campusnumerique.pw.boardgame.crate.potion.GreatHealPotion;
-import fr.campusnumerique.pw.boardgame.crate.potion.Potion;
-import fr.campusnumerique.pw.boardgame.crate.potion.SmallHealPotion;
+import fr.campusnumerique.pw.boardgame.crate.potion.*;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -14,8 +12,9 @@ public class CrateSquare extends Square {
     private final Potion potion;
     private final Equipment equipment;
 
+    private static final Random random = new Random();
+
     public CrateSquare() {
-        Random random = new Random();
         if (random.nextBoolean()) {
             this.potion = getRandomPotion();
             this.equipment = null;
@@ -26,7 +25,6 @@ public class CrateSquare extends Square {
     }
 
     private Potion getRandomPotion() {
-        Random random = new Random();
 
         ArrayList<Supplier<Potion>> potionTypes = new ArrayList<>();
         potionTypes.add(GreatHealPotion::new);
@@ -37,7 +35,6 @@ public class CrateSquare extends Square {
     }
 
     public Equipment getRandomEquipment() {
-        Random random = new Random();
 
         ArrayList<Supplier<Equipment>> equipmentTypes = new ArrayList<>();
         equipmentTypes.add(FireBall::new);

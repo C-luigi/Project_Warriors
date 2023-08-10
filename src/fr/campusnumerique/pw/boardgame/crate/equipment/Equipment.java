@@ -8,7 +8,8 @@ public abstract class Equipment {
         this.name = name;
         this.stat = stat;
     }
-    
+
+    @Override
     public String toString() {
         return "Equipment:" + '\n' +
                 "Type : " + name + '\n' +

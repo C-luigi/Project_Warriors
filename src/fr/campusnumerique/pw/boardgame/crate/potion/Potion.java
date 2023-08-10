@@ -1,6 +1,6 @@
 package fr.campusnumerique.pw.boardgame.crate.potion;
 
-public abstract class Potion{
+public abstract class Potion {
     private final String name;
     private final int stat;
 
@@ -9,6 +9,7 @@ public abstract class Potion{
         this.stat = stat;
     }
 
+    @Override
     public String toString() {
         return "Potion : " + name + '\n' +
                 "stat = " + stat;

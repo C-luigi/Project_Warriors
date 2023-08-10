@@ -1,6 +1,7 @@
 package fr.campusnumerique.pw.boardgame;
 
 import fr.campusnumerique.pw.boardgame.crate.CrateSquare;
+import fr.campusnumerique.pw.boardgame.enemy.EnemySquare;
 
 import java.util.ArrayList;
 
@@ -11,11 +12,9 @@ public class Board {
     public Board() {
         this.cases = new ArrayList<>();
         cases.add(new EmptySquare());
-        cases.add(new EnemySquare("Goblin",10,10));
-        cases.add(new EmptySquare());
-        cases.add(new CrateSquare());
-        cases.add(new CrateSquare());
-        cases.add(new CrateSquare());
+        cases.add(new EnemySquare());
+        cases.add(new EnemySquare());
+        cases.add(new EnemySquare());
         cases.add(new CrateSquare());
         this.playerPosition = 0;
     }
