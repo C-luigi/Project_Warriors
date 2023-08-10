@@ -1,5 +1,5 @@
 package fr.campusnumerique.pw.boardgame;
 
-public abstract class Case {
+public abstract class Square {
     public abstract String toString();
 }

@@ -31,15 +31,15 @@ public class Game {
                 character = menu.createCharacter();
             }
             else if (option == 2) {
-                if (character.isEmpty()) {
+                //if (character.isEmpty()) {
                     System.out.println("please create a character");
-                }
-                else {
+                //}
+                //else {
                     Dice dice = new PipeDie();
                     Board board = new Board();
                     Game game = new Game(board, character,dice);
                     game.startGame();
-                }
+                //}
             }
             else if (option == 3) {
                 onOff = false;

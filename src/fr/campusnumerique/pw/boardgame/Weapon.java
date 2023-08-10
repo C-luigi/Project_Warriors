@@ -2,7 +2,7 @@ package fr.campusnumerique.pw.boardgame;
 
 import java.util.ArrayList;
 
-public class Weapon extends Case{
+public class Weapon extends Square {
     protected String nameWeapon;
     protected int damagePoints;
 

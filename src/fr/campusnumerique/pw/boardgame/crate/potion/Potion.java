@@ -1,10 +1,5 @@
 package fr.campusnumerique.pw.boardgame.crate.potion;
 
-import fr.campusnumerique.pw.boardgame.crate.Crate;
-import fr.campusnumerique.pw.boardgame.crate.equipment.Equipment;
-
-import java.util.ArrayList;
-
 public abstract class Potion{
     private final String name;
     private final int stat;
@@ -15,8 +10,7 @@ public abstract class Potion{
     }
 
     public String toString() {
-        return "Equipment:" + '\n' +
-                "Type : " + name + '\n' +
+        return "Potion : " + name + '\n' +
                 "stat = " + stat;
     }
 }

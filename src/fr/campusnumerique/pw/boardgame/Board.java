@@ -1,18 +1,22 @@
 package fr.campusnumerique.pw.boardgame;
 
-import fr.campusnumerique.pw.boardgame.crate.potion.Potion;
+import fr.campusnumerique.pw.boardgame.crate.CrateSquare;
 
 import java.util.ArrayList;
 
 public class Board {
-    private final ArrayList<Case> cases;
+    private final ArrayList<Square> cases;
     private int playerPosition;
 
     public Board() {
         this.cases = new ArrayList<>();
-        cases.add(new EmptyCase());
-        cases.add(new Enemy("Goblin",10,10));
-        cases.add(new Weapon("Sword",10));
+        cases.add(new EmptySquare());
+        cases.add(new EnemySquare("Goblin",10,10));
+        cases.add(new EmptySquare());
+        cases.add(new CrateSquare());
+        cases.add(new CrateSquare());
+        cases.add(new CrateSquare());
+        cases.add(new CrateSquare());
         this.playerPosition = 0;
     }
 

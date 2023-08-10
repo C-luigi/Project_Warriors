@@ -2,7 +2,7 @@ package fr.campusnumerique.pw.boardgame;
 
 import java.util.ArrayList;
 
-public class Spell extends Case{
+public class Spell extends Square {
     protected String nameSpell;
     protected int damagePoints;
     protected String philtre;
