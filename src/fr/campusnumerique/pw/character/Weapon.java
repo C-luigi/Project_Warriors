@@ -1,8 +1,10 @@
-package fr.campusnumerique.pw.boardgame;
+package fr.campusnumerique.pw.character;
+
+import fr.campusnumerique.pw.boardgame.Square;
 
 import java.util.ArrayList;
 
-public class Weapon extends Square {
+public class Weapon {
     protected String nameWeapon;
     protected int damagePoints;
 

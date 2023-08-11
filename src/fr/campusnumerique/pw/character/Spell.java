@@ -1,8 +1,10 @@
-package fr.campusnumerique.pw.boardgame;
+package fr.campusnumerique.pw.character;
+
+import fr.campusnumerique.pw.boardgame.Square;
 
 import java.util.ArrayList;
 
-public class Spell extends Square {
+public class Spell {
     protected String nameSpell;
     protected int damagePoints;
     protected String philtre;

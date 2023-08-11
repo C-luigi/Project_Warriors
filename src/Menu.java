@@ -1,5 +1,5 @@
-import fr.campusnumerique.pw.boardgame.Spell;
-import fr.campusnumerique.pw.boardgame.Weapon;
+import fr.campusnumerique.pw.character.Spell;
+import fr.campusnumerique.pw.character.Weapon;
 import fr.campusnumerique.pw.character.Character;
 import fr.campusnumerique.pw.character.Magician;
 import fr.campusnumerique.pw.character.Warrior;
@@ -24,38 +24,36 @@ public class Menu {
         return scanner.next();
     }
 
-    public String createCharacter(){
+    public Character createCharacter(){
         System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
         int characterType = this.readInputInt();
-        String characterSheet = "";
+        Character character = null ;
         if (characterType == 1) {
-            Warrior character = this.createWarrior();
-            character.setWeapon(this.createWeapon());
-            characterSheet = handleCharacterSheet(character);
+            character = this.createWarrior();
+            ((Warrior) character).setWeapon(this.createWeapon());
+            character = handleCharacterSheet(character);
         }
         else if (characterType == 2) {
-            Magician character = this.createMagician();
-            character.setSpell(this.createSpell());
-            characterSheet = handleCharacterSheet(character);
+            character = this.createMagician();
+            ((Magician) character).setSpell(this.createSpell());
+            character = handleCharacterSheet(character);
         }
         else {
             System.out.println("Invalid option. Please try again");
         }
-        return characterSheet;
+        return character;
     }
 
-    public String handleCharacterSheet(Character character) {
+    public Character handleCharacterSheet(Character character) {
         if (character instanceof Warrior || character instanceof Magician) {
             int seeSheet;
-            String characterSheet;
             do {
                 System.out.println(character.getClass().getSimpleName() + " created !!!");
                 System.out.println("Would you like to see the character sheet ? \r\n 1:Yes 2:No 3:Modify");
                 seeSheet = this.readInputInt();
-                characterSheet = character.toString();
                 if (seeSheet == 1 || seeSheet == 3) {
                     if (seeSheet == 1) {
-                        System.out.println(characterSheet);
+                        System.out.println(character);
                     } else {
                         modifyCharacter(character);
                     }
@@ -63,10 +61,10 @@ public class Menu {
                     System.out.println("Invalid option. Please try again");
                 }
             } while (seeSheet != 2);
-            return characterSheet;
+            return character;
         }
         else{
-            return "Unknown character type.";
+            return null;
         }
     }
 

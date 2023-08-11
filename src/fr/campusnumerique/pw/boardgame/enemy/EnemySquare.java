@@ -2,6 +2,7 @@ package fr.campusnumerique.pw.boardgame.enemy;
 
 import fr.campusnumerique.pw.boardgame.Square;
 import fr.campusnumerique.pw.boardgame.enemy.enemytype.*;
+import fr.campusnumerique.pw.character.Character;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -30,6 +31,11 @@ public class EnemySquare extends Square {
     @Override
     public String toString() {
         return enemy.toString();
+    }
+
+    @Override
+    public void interaction(Character character) {
+
     }
 
 }

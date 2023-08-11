@@ -1,5 +1,4 @@
 package fr.campusnumerique.pw.character;
-import fr.campusnumerique.pw.boardgame.Weapon;
 
 public class Warrior extends Character {
     private Weapon weapon;

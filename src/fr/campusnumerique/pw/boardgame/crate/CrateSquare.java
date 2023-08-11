@@ -5,6 +5,7 @@ import fr.campusnumerique.pw.boardgame.crate.magicianequipment.FireBall;
 import fr.campusnumerique.pw.boardgame.crate.magicianequipment.Lightning;
 import fr.campusnumerique.pw.boardgame.crate.warriorequipment.*;
 import fr.campusnumerique.pw.boardgame.crate.potion.*;
+import fr.campusnumerique.pw.character.Character;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -56,6 +57,11 @@ public class CrateSquare extends Square {
         else {
             return potion.toString();
         }
+    }
+
+    @Override
+    public void interaction(Character character) {
+
     }
 
 }
