@@ -1,5 +1,4 @@
-import fr.campusnumerique.pw.character.Spell;
-import fr.campusnumerique.pw.character.Weapon;
+import fr.campusnumerique.pw.boardgame.crate.DefaultFist;
 import fr.campusnumerique.pw.character.Character;
 import fr.campusnumerique.pw.character.Magician;
 import fr.campusnumerique.pw.character.Warrior;
@@ -30,12 +29,10 @@ public class Menu {
         Character character = null ;
         if (characterType == 1) {
             character = this.createWarrior();
-            ((Warrior) character).setWeapon(this.createWeapon());
             character = handleCharacterSheet(character);
         }
         else if (characterType == 2) {
             character = this.createMagician();
-            ((Magician) character).setSpell(this.createSpell());
             character = handleCharacterSheet(character);
         }
         else {
@@ -87,7 +84,7 @@ public class Menu {
                 System.out.println("Invalid input! Please enter a value between 5 and 10.");
             }}
 
-        return new Warrior(name, healthPoints, strongPoints, new Weapon("fist",0));
+        return new Warrior(name, healthPoints, strongPoints, new DefaultFist());
     }
 
     public Magician createMagician() {
@@ -110,25 +107,7 @@ public class Menu {
             }
         }
 
-        return new Magician(name, healthPoints, strongPoints, new Spell("fist",0));
-    }
-
-    public Weapon createWeapon() {
-        System.out.println("Enter the name of weapon :");
-        String nameWeapon = this.readInputString();
-        System.out.println("Enter the damage of weapon :");
-        int damagePoints = this.readInputInt();
-
-        return new Weapon(nameWeapon, damagePoints);
-    }
-
-    public Spell createSpell() {
-        System.out.println("Enter the name of spell :");
-        String nameSpell = this.readInputString();
-        System.out.println("Enter the damage of spell :");
-        int damagePoints = this.readInputInt();
-
-        return new Spell(nameSpell, damagePoints);
+        return new Magician(name, healthPoints, strongPoints, new DefaultFist());
     }
 
     public void modifyCharacter(Character character) {
@@ -136,8 +115,7 @@ public class Menu {
                 "What would you like to modify?" + '\n' +
                         "1. Name" + '\n' +
                         "2. Standard of Living" +  '\n' +
-                        "3. Attack Strength" +  '\n' +
-                        "4. Weapon");
+                        "3. Attack Strength");
 
         int option = this.readInputInt();
         switch(option) {
@@ -153,16 +131,6 @@ public class Menu {
                 System.out.println("Enter the new attack strength:");
                 character.setStrongPoints(this.readInputInt());
                 break;
-            case 4:
-                if (character instanceof Warrior) {
-                    System.out.println("Enter the new weapon:");
-                    ((Warrior)character).setWeapon(createWeapon());
-                    break;
-                } else if (character instanceof Magician) {
-                    System.out.println("Enter the new weapon:");
-                    ((Magician)character).setSpell(createSpell());
-                    break;
-                }
             default:
                 System.out.println("Invalid option.");
                 break;

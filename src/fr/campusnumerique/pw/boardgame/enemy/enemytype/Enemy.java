@@ -3,7 +3,7 @@ package fr.campusnumerique.pw.boardgame.enemy.enemytype;
 import fr.campusnumerique.pw.boardgame.Square;
 import fr.campusnumerique.pw.character.Character;
 
-public class Enemy extends Square {
+public abstract class Enemy extends Square {
     private final String typeEnemy;
     private final int healthPointEnemy;
     private final int strongPointEnemy;
@@ -17,13 +17,9 @@ public class Enemy extends Square {
     @Override
     public String toString() {
         return "Enemy !!!" + '\n' +
-                "Type : " + typeEnemy + '\n' +
-                "HealthPoints = " + healthPointEnemy +  '\n' +
-                "StrongPoints = " + strongPointEnemy;
+                typeEnemy +
+                "; HP = " + healthPointEnemy +
+                "; SP = " + strongPointEnemy;
     }
 
-    @Override
-    public void interaction(Character character) {
-
-    }
 }

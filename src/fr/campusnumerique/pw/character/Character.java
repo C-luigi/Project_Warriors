@@ -1,9 +1,13 @@
 package fr.campusnumerique.pw.character;
 
+import fr.campusnumerique.pw.boardgame.crate.Equipment;
+
 public abstract class Character {
     protected String name;
     protected int healthPoints;
     protected int strongPoints;
+    
+    protected Equipment equipment;
 
     public Character() {
         this.name = "bobby";
@@ -46,11 +50,19 @@ public abstract class Character {
         this.strongPoints = strongPoints;
     }
 
+    public Equipment getEquipment() {
+        return equipment;
+    }
+
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
+    }
+
     public String toString() {
         return "------------------------------" +  '\n' +
                 "Character:" + '\n' +
-                "Name : " + name + '\n' +
-                "HealthPoints = " + healthPoints +  '\n' +
-                "StrongPoints = " + strongPoints;
+                name +
+                "; HP = " + healthPoints +
+                "; SP = " + strongPoints;
     }
 }

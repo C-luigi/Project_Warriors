@@ -14,7 +14,7 @@ public abstract class Equipment extends Square {
     @Override
     public String toString() {
         return "Equipment:" + '\n' +
-                "Type : " + name + '\n' +
-                "stat = " + stat;
+                name +
+                "; damage = " + stat;
     }
 }

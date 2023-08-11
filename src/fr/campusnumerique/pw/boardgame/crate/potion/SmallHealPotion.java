@@ -10,6 +10,6 @@ public class SmallHealPotion extends Potion {
 
     @Override
     public void interaction(Character character) {
-
+        System.out.println(this);
     }
 }

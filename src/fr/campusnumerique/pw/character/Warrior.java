@@ -1,33 +1,25 @@
 package fr.campusnumerique.pw.character;
 
+import fr.campusnumerique.pw.boardgame.crate.Equipment;
+
 public class Warrior extends Character {
-    private Weapon weapon;
+    private Equipment equipment;
 
-    public Warrior() {
-        super();
-        this.weapon = new Weapon("sword",2);
-    }
-
-    public Warrior(String name) {
-        super(name);
-        this.weapon = new Weapon("sword",2);
-    }
-
-    public Warrior(String name, int healthPoints, int strongPoints, Weapon weapon) {
+    public Warrior(String name, int healthPoints, int strongPoints, Equipment equipment) {
         super(name, healthPoints, strongPoints);
-        this.weapon = weapon;
+        this.equipment = equipment;
     }
 
-    public Weapon getWeapon() {
-        return weapon;
+    public Equipment getEquipment() {
+        return equipment;
     }
 
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
+    public void setEquipment(Equipment equipment) {
+        this.equipment = equipment;
     }
 
     @Override
     public String toString() {
-        return super.toString() + '\n' + weapon;
+        return super.toString() + '\n' + equipment;
     }
 }

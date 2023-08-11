@@ -13,7 +13,7 @@ public abstract class Potion extends Square {
 
     @Override
     public String toString() {
-        return "Potion : " + name + '\n' +
-                "stat = " + stat;
+        return "Potion : " + name +
+                " heal = " + stat;
     }
 }
