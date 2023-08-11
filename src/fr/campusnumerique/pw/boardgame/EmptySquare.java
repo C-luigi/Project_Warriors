@@ -8,7 +8,8 @@ public class EmptySquare extends Square {
     }
 
     @Override
-    public void interaction(Character character) {
+    public Square interaction(Character character) {
 
+        return null;
     }
 }

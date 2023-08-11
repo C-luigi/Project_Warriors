@@ -1,5 +1,6 @@
 package fr.campusnumerique.pw.boardgame.crate.potion;
 
+import fr.campusnumerique.pw.boardgame.Square;
 import fr.campusnumerique.pw.boardgame.crate.Potion;
 import fr.campusnumerique.pw.character.Character;
 
@@ -9,7 +10,8 @@ public class SmallHealPotion extends Potion {
     }
 
     @Override
-    public void interaction(Character character) {
+    public Square interaction(Character character) {
         System.out.println(this);
+        return null;
     }
 }

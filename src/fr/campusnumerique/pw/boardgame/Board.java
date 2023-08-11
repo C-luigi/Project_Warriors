@@ -1,14 +1,10 @@
 package fr.campusnumerique.pw.boardgame;
 
-import fr.campusnumerique.pw.boardgame.crate.magicianequipment.FireBall;
-import fr.campusnumerique.pw.boardgame.crate.magicianequipment.Lightning;
-import fr.campusnumerique.pw.boardgame.crate.warriorequipment.Sledgehammer;
-import fr.campusnumerique.pw.boardgame.crate.warriorequipment.Sword;
-import fr.campusnumerique.pw.boardgame.crate.potion.GreatHealPotion;
-import fr.campusnumerique.pw.boardgame.crate.potion.SmallHealPotion;
-import fr.campusnumerique.pw.boardgame.enemy.enemytype.Dragon;
-import fr.campusnumerique.pw.boardgame.enemy.enemytype.Goblin;
-import fr.campusnumerique.pw.boardgame.enemy.enemytype.Wizard;
+import fr.campusnumerique.pw.character.Character;
+import fr.campusnumerique.pw.boardgame.crate.magicianequipment.*;
+import fr.campusnumerique.pw.boardgame.crate.warriorequipment.*;
+import fr.campusnumerique.pw.boardgame.crate.potion.*;
+import fr.campusnumerique.pw.boardgame.enemy.enemytype.*;
 
 import java.util.ArrayList;
 
@@ -16,7 +12,7 @@ public class Board {
     private final ArrayList<Square> cases;
     private int playerPosition;
 
-    public Board() {
+    public Board(Character character) {
         this.cases = new ArrayList<>();
         cases.add(new EmptySquare());
         cases.add(new Dragon());

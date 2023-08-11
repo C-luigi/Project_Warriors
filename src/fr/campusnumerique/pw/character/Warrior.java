@@ -5,6 +5,10 @@ import fr.campusnumerique.pw.boardgame.crate.Equipment;
 public class Warrior extends Character {
     private Equipment equipment;
 
+    public Warrior() {
+        super("bobby",5,8);
+    }
+
     public Warrior(String name, int healthPoints, int strongPoints, Equipment equipment) {
         super(name, healthPoints, strongPoints);
         this.equipment = equipment;

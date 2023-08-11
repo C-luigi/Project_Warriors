@@ -1,13 +1,14 @@
 import fr.campusnumerique.pw.boardgame.Board;
 import fr.campusnumerique.pw.character.Character;
+import fr.campusnumerique.pw.character.Warrior;
 import fr.campusnumerique.pw.dice.Dice;
 import fr.campusnumerique.pw.dice.PipeDie;
 
 public class Game {
 
-    private final Board board;
-    private final Character character;
-    private final Dice dice;
+    private Board board;
+    private Character character;
+    private Dice dice;
 
     public Game(){
         this.board = null;
@@ -15,21 +16,10 @@ public class Game {
         this.dice = null;
     }
 
-    public Game(Board board, Character character, Dice dice) {
-        this.board = board;
-        this.character = character;
-        this.dice = dice;
-    }
-
     public void gameInitialisation(){
         Menu menu = new Menu();
+        this.character = new Warrior();
         boolean onOff = true;
-        Character character = new Character() {
-            @Override
-            public String getName() {
-                return super.getName();
-            }
-        };
         while (onOff) {
             menu.printOption();
             int option = menu.readInputInt();
@@ -37,15 +27,7 @@ public class Game {
                 character = menu.createCharacter();
             }
             else if (option == 2) {
-//                if (character.isEmpty()) {
-                    System.out.println("please create a character");
-//                }
-//                else {
-                    Dice dice = new PipeDie();
-                    Board board = new Board();
-                    Game game = new Game(board, character,dice);
-                    game.startGame();
-//                }
+                startGame();
             }
             else if (option == 3) {
                 onOff = false;
@@ -53,17 +35,6 @@ public class Game {
             else {
                 System.out.println("Invalid option. Please try again");
             }
-        }
-    }
-
-    public void move() throws CharacterOutOfBoardException {
-        int steps = dice.roll();
-        System.out.println("You rolled a " + steps);
-
-        if (board.getPlayerPosition() + steps >= board.getBoardSize()) {
-            throw new CharacterOutOfBoardException("The character has moved off the board");
-        } else {
-            board.movePlayer(steps);
         }
     }
 
@@ -76,10 +47,13 @@ public class Game {
                             "1. Roll dice" + '\n' +
                             "2. See stats");
             int option = menu.readInputInt();
+            this.dice = new PipeDie();
+            this.board = new Board(character);
             if (option == 1){
                 try {
+//                    board.movePlayer(dice.roll());
                     move();
-                    System.out.println(character.getName() + '\n' + " is now at square " + board.getPlayerPosition() + " / " + board.getBoardSize());
+                    System.out.println(character.toString() + '\n' + " is now at square " + board.getPlayerPosition() + " / " + board.getBoardSize());
                 } catch (CharacterOutOfBoardException e) {
                     System.out.println(e.getMessage());
                     System.out.println("Congratulations to you! You've reached the end of the board!");
@@ -104,6 +78,17 @@ public class Game {
             else {
                 System.out.println("Invalid option. Please try again");
             }
+        }
+    }
+
+    public void move() throws CharacterOutOfBoardException {
+        int steps = dice.roll();
+        System.out.println("You rolled a " + steps);
+
+        if (board.getPlayerPosition() + steps >= board.getBoardSize()) {
+            throw new CharacterOutOfBoardException("The character has moved off the board");
+        } else {
+            board.movePlayer(steps);
         }
     }
 }

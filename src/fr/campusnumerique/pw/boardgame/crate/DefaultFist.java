@@ -1,7 +1,7 @@
 package fr.campusnumerique.pw.boardgame.crate;
 
+import fr.campusnumerique.pw.boardgame.Square;
 import fr.campusnumerique.pw.character.Character;
-import fr.campusnumerique.pw.character.Warrior;
 
 public class DefaultFist extends Equipment {
     public DefaultFist() {
@@ -9,7 +9,8 @@ public class DefaultFist extends Equipment {
     }
 
     @Override
-    public void interaction(Character character) {
+    public Square interaction(Character character) {
 
+        return null;
     }
 }
