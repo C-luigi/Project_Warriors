@@ -1,6 +1,8 @@
 package fr.campusnumerique.pw.boardgame.enemy.enemytype;
 
-public class Enemy {
+import fr.campusnumerique.pw.boardgame.Square;
+
+public class Enemy extends Square {
     private final String typeEnemy;
     private final int healthPointEnemy;
     private final int strongPointEnemy;

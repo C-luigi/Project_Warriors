@@ -1,6 +1,8 @@
-package fr.campusnumerique.pw.boardgame.crate.equipment;
+package fr.campusnumerique.pw.boardgame.crate;
 
-public abstract class Equipment {
+import fr.campusnumerique.pw.boardgame.Square;
+
+public abstract class Equipment extends Square {
     private final String name;
     private final int stat;
 

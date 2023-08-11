@@ -1,7 +1,9 @@
 package fr.campusnumerique.pw.boardgame.crate;
 
 import fr.campusnumerique.pw.boardgame.Square;
-import fr.campusnumerique.pw.boardgame.crate.equipment.*;
+import fr.campusnumerique.pw.boardgame.crate.magicianequipment.FireBall;
+import fr.campusnumerique.pw.boardgame.crate.magicianequipment.Lightning;
+import fr.campusnumerique.pw.boardgame.crate.warriorequipment.*;
 import fr.campusnumerique.pw.boardgame.crate.potion.*;
 
 import java.util.Random;

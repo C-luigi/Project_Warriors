@@ -1,6 +1,8 @@
-package fr.campusnumerique.pw.boardgame.crate.potion;
+package fr.campusnumerique.pw.boardgame.crate;
 
-public abstract class Potion {
+import fr.campusnumerique.pw.boardgame.Square;
+
+public abstract class Potion extends Square {
     private final String name;
     private final int stat;
 
