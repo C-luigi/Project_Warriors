@@ -4,7 +4,7 @@ import fr.campusnumerique.pw.character.Warrior;
 import fr.campusnumerique.pw.dice.Dice;
 import fr.campusnumerique.pw.dice.PipeDie;
 
-public class Game {
+public class    Game {
 
     private Board board;
     private Character character;

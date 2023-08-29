@@ -3,13 +3,14 @@ import fr.campusnumerique.pw.character.Character;
 import fr.campusnumerique.pw.character.Magician;
 import fr.campusnumerique.pw.character.Warrior;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
 
 
     public void printOption() {
-        System.out.println("1. Create a new character");
+        System.out.println("1. Choice an character");
         System.out.println("2. start the game");
         System.out.println("3. left the game");
     }
@@ -24,16 +25,19 @@ public class Menu {
     }
 
     public Character createCharacter(){
-        System.out.println("What type of character would you like to create? \r\n 1: Warrior 2: Magician");
+        ArrayList<Character> characterList = HeroDatabase.getHeroes();
+        System.out.println("1: Warrior 2: Magician");
         int characterType = this.readInputInt();
         Character character = null ;
         if (characterType == 1) {
-            character = this.createWarrior();
-            character = handleCharacterSheet(character);
+            character = characterList.get(0);
+//            character = this.createWarrior();
+//            character = handleCharacterSheet(character);
         }
         else if (characterType == 2) {
-            character = this.createMagician();
-            character = handleCharacterSheet(character);
+            character = characterList.get(0);
+//            character = this.createMagician();
+//            character = handleCharacterSheet(character);
         }
         else {
             System.out.println("Invalid option. Please try again");
