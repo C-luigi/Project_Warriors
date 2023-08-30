@@ -2,6 +2,10 @@ package fr.campusnumerique.pw.character;
 
 import fr.campusnumerique.pw.boardgame.crate.Equipment;
 
+/**
+ * An abstract Chara...
+ * Any new charcater type must extends this
+ */
 public abstract class Character {
     protected String name;
     protected int healthPoints;

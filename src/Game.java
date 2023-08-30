@@ -24,9 +24,10 @@ public class    Game {
             menu.printOption();
             int option = menu.readInputInt();
             if (option == 1) {
-                character = menu.createCharacter();
+                character = menu.choiceCharacter();
             }
             else if (option == 2) {
+                HeroDatabase.getInstance().closeConnection();
                 startGame();
             }
             else if (option == 3) {

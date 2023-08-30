@@ -3,41 +3,70 @@ import fr.campusnumerique.pw.character.Character;
 import fr.campusnumerique.pw.character.Magician;
 import fr.campusnumerique.pw.character.Warrior;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
-
+    /**
+     * method which write a menu with 3 option
+     */
     public void printOption() {
         System.out.println("1. Choice an character");
         System.out.println("2. start the game");
         System.out.println("3. left the game");
     }
 
+    /**
+     * method which read the keyboard input type int
+     */
     public int readInputInt() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
+
+    /**
+     * method which read the keyboard input type String
+     */
     public String readInputString() {
         Scanner scanner = new Scanner(System.in);
         return scanner.next();
     }
 
-    public Character createCharacter(){
-        ArrayList<Character> characterList = HeroDatabase.getHeroes();
+    /**
+     * method which allows of choice an character retrieved from a database
+     */
+    public Character choiceCharacter(){
+        List<Character> characterList = HeroDatabase.getInstance().getHeroes();
         System.out.println("1: Warrior 2: Magician");
         int characterType = this.readInputInt();
         Character character = null ;
         if (characterType == 1) {
-            character = characterList.get(0);
-//            character = this.createWarrior();
-//            character = handleCharacterSheet(character);
+            System.out.println( character = characterList.get(0) );
         }
         else if (characterType == 2) {
-            character = characterList.get(0);
-//            character = this.createMagician();
-//            character = handleCharacterSheet(character);
+            System.out.println( character = characterList.get(1) );
+        }
+        else {
+            System.out.println("Invalid option. Please try again");
+        }
+        return character;
+    }
+
+    /**
+     * method which allows of create a new character
+     */
+    public Character createCharacter(){
+        System.out.println("1: Warrior 2: Magician");
+        int characterType = this.readInputInt();
+        Character character = null ;
+        if (characterType == 1) {
+            character = this.createWarrior();
+            character = handleCharacterSheet(character);
+        }
+        else if (characterType == 2) {
+            character = this.createMagician();
+            character = handleCharacterSheet(character);
         }
         else {
             System.out.println("Invalid option. Please try again");
