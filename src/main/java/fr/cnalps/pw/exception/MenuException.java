@@ -7,16 +7,6 @@ package fr.cnalps.pw.exception;
 public class MenuException extends Exception {
 
     /**
-     * Constructs a new MenuException with the specified detail message.
-     *
-     * @param message the detail message (which is saved for later retrieval by the {@link #getMessage()} method).
-     */
-
-    public MenuException(String message) {
-        super(message);
-    }
-
-    /**
      * Constructs a new MenuException with the specified detail message and cause.
      *
      * @param message the detail message (which is saved for later retrieval by the {@link #getMessage()} method).

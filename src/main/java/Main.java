@@ -19,7 +19,7 @@ public class Main {
         try {
             game.gameInitialisation();
         } catch (MenuException e) {
-            throw new MenuException("error loading menu", e);
+            throw new MenuException("error loading game", e);
         }
     }
 }

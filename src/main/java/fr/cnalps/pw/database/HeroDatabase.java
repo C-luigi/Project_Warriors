@@ -1,14 +1,17 @@
 package fr.cnalps.pw.database;
 
-import java.lang.reflect.Constructor;
-import java.sql.*;
-import java.util.List;
-import java.util.ArrayList;
-
 import fr.cnalps.pw.boardgame.crate.equipment.DefaultFist;
 import fr.cnalps.pw.boardgame.crate.equipment.Equipment;
 import fr.cnalps.pw.character.Character;
 import fr.cnalps.pw.exception.DatabaseException;
+
+import java.lang.reflect.Constructor;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * This class manages database connections, fetches hero data, and closes the connection when done.
@@ -16,9 +19,6 @@ import fr.cnalps.pw.exception.DatabaseException;
  */
 
 public class HeroDatabase {
-
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/db_projectwarriors";
-
     private static HeroDatabase instance;  // Instance Singleton
     private static Connection connection;         // Connexion à la base de données
 
@@ -33,10 +33,11 @@ public class HeroDatabase {
 
     private HeroDatabase() throws DatabaseException {
         try {
-            // lire un fichier .env (FileInputStream)
-            // Charger dans un Properties
+            Properties file = new Properties();
+            file.load(Files.newInputStream(Paths.get(".env")));
+
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(JDBC_URL, "JDBC_USER", "JDBC_PASSWORD");
+            connection = DriverManager.getConnection(file.getProperty("JDBC_URL"), file.getProperty("JDBC_USER"), file.getProperty("JDBC_PASSWORD"));
         } catch (Exception e) {
             throw new DatabaseException("Error initializing the database connection", e);
         }
@@ -72,7 +73,7 @@ public class HeroDatabase {
             ResultSet resultSet = statement.executeQuery("SELECT * FROM hero");
 
             while (resultSet.next()) {
-                Character character = null;
+                Character character;
                 String type = resultSet.getString("type");
                 String name = resultSet.getString("name");
                 int healthPoints = resultSet.getInt("healthPoints");

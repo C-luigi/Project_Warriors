@@ -1,6 +1,5 @@
 package fr.cnalps.pw.boardgame;
 
-import fr.cnalps.pw.character.Character;
 import fr.cnalps.pw.boardgame.crate.equipment.magicianequipment.FireBall;
 import fr.cnalps.pw.boardgame.crate.equipment.magicianequipment.Lightning;
 import fr.cnalps.pw.boardgame.crate.potion.healthpotion.GreatHealPotion;
@@ -27,10 +26,9 @@ public class Board {
      * Constructs the game board with a predefined set of squares.
      * The initial player position is set to 0 (start of the board).
      *
-     * @param character The character playing on the board.
      */
 
-    public Board(Character character) {
+    public Board() {
         this.cases = new ArrayList<>();
         cases.add(new EmptySquare());
         cases.add(new Dragon());

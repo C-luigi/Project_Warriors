@@ -7,16 +7,6 @@ package fr.cnalps.pw.exception;
 public class DatabaseException extends Exception {
 
     /**
-     * Constructs a new DatabaseException with the specified detail message.
-     *
-     * @param message the detail message. The detail message is saved for later retrieval by the {@link #getMessage()} method.
-     */
-
-    public DatabaseException(String message) {
-        super(message);
-    }
-
-    /**
      * Constructs a new DatabaseException with the specified detail message and cause.
      *
      * @param message the detail message. The detail message is saved for later retrieval by the {@link #getMessage()} method.

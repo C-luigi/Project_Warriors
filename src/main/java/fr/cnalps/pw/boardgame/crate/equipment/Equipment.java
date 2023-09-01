@@ -13,7 +13,7 @@ public abstract class Equipment extends Square {
     private final int stat;
 
     /**
-     * Constructs an equipment with a specified name and associated stat.
+     * Constructs equipment with a specified name and associated stat.
      *
      * @param name The name or identification of the equipment.
      * @param stat The statistic or value associated with the equipment,

@@ -74,7 +74,7 @@ public class    Game {
         System.out.println("The game has started");
         Menu menu = new Menu();
         this.dice = new PipeDie();
-        this.board = new Board(character);
+        this.board = new Board();
         while (true) {
             System.out.println(
                     "Please selection option :" + '\n' +

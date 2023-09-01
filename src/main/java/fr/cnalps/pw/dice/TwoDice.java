@@ -5,8 +5,8 @@ package fr.cnalps.pw.dice;
  */
 
 public class TwoDice implements Dice{
-    private DieSixFace de1 = new DieSixFace();
-    private DieSixFace de2 = new DieSixFace();
+    private final DieSixFace de1 = new DieSixFace();
+    private final DieSixFace de2 = new DieSixFace();
 
     /**
      * roll the dice

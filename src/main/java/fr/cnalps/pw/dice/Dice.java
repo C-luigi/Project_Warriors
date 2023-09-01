@@ -1,7 +1,7 @@
 package fr.cnalps.pw.dice;
 
 /**
- * Represents a interface of dice
+ * Represents an interface of dice
  */
 
 public interface Dice {

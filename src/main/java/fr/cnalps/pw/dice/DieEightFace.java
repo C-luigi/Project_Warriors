@@ -1,7 +1,7 @@
 package fr.cnalps.pw.dice;
 
 /**
- * Represents a eight-faced dice
+ * Represents an eight-faced dice
  */
 
 public class DieEightFace implements Dice{
