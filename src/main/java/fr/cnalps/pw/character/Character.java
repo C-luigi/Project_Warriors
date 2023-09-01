@@ -1,10 +1,11 @@
 package fr.cnalps.pw.character;
 
-import fr.cnalps.pw.boardgame.crate.Equipment;
+import fr.cnalps.pw.boardgame.crate.equipment.Equipment;
 
 /**
- * An abstract Chara...
- * Any new charcater type must extends this
+ * Represents an abstract base character.
+ * Defines common attributes and methods shared across various character types.
+ * All new character types should extend this class.
  */
 public abstract class Character {
     protected String name;
@@ -13,16 +14,34 @@ public abstract class Character {
     
     protected Equipment equipment;
 
+    /**
+     * Default constructor initializing the character with default attributes.
+     */
+
     public Character() {
         this.name = "bobby";
         this.healthPoints = 5;
         this.strongPoints = 8;
     }
 
+    /**
+     * Constructs a character with a specified name, and default health and strength points.
+     *
+     * @param name The name of the character.
+     */
+
     public Character(String name) {
         this();
         this.name = name;
     }
+
+    /**
+     * Constructs a character with specified attributes.
+     *
+     * @param name The name of the character.
+     * @param healthPoints The health or vitality points of the character.
+     * @param strongPoints The strength or attack points of the character.
+     */
 
     public Character(String name, int healthPoints, int strongPoints) {
         this.name = name;
@@ -61,6 +80,12 @@ public abstract class Character {
     public void setEquipment(Equipment equipment) {
         this.equipment = equipment;
     }
+
+    /**
+     * Provides a formatted string representation of the character's attributes.
+     *
+     * @return A string detailing the character's name, health, and strength points.
+     */
 
     public String toString() {
         return "------------------------------" +  '\n' +

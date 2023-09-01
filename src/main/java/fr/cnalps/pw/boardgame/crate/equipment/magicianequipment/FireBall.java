@@ -1,7 +1,7 @@
-package fr.cnalps.pw.boardgame.crate.magicianequipment;
+package fr.cnalps.pw.boardgame.crate.equipment.magicianequipment;
 
 import fr.cnalps.pw.boardgame.Square;
-import fr.cnalps.pw.boardgame.crate.Equipment;
+import fr.cnalps.pw.boardgame.crate.equipment.Equipment;
 import fr.cnalps.pw.character.Character;
 import fr.cnalps.pw.character.Warrior;
 

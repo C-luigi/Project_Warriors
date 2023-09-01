@@ -1,5 +1,9 @@
 package fr.cnalps.pw.dice;
 
+/**
+ * Represents a combination of two six-faced dice
+ */
+
 public class TwoDice implements Dice{
     private DieSixFace de1 = new DieSixFace();
     private DieSixFace de2 = new DieSixFace();

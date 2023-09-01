@@ -10,17 +10,31 @@ import fr.cnalps.pw.exception.CharacterOutOfBoardException;
 import fr.cnalps.pw.exception.DatabaseException;
 import fr.cnalps.pw.exception.MenuException;
 
+/**
+ * Represents the core game logic, including the game loop, character movements, and interaction with the board.
+ */
+
 public class    Game {
 
     private Board board;
     private Character character;
     private Dice dice;
 
+    /**
+     * Initializes a new game instance with default state.
+     */
+
     public Game(){
         this.board = null;
         this.character = null;
         this.dice = null;
     }
+
+    /**
+     * Initializes the game by setting up the character and the menu options.
+     *
+     * @throws MenuException If there's an error while initializing or processing the game's menu.
+     */
 
     public void gameInitialisation() throws MenuException {
         Menu menu = new Menu();
@@ -29,7 +43,10 @@ public class    Game {
         while (onOff) {
             menu.printOption();
             int option = menu.readInputInt();
-            if (option == 1) {
+            if (option == 0) {
+                character = menu.createCharacter();
+            }
+            else if (option == 1) {
                 character = menu.choiceCharacter();
             }
             else if (option == 2) {
@@ -48,6 +65,10 @@ public class    Game {
             }
         }
     }
+
+    /**
+     * Starts the main game loop, allowing the player to make decisions, move, and view stats.
+     */
 
     public void startGame(){
         System.out.println("The game has started");
@@ -91,12 +112,18 @@ public class    Game {
         }
     }
 
+    /**
+     * Moves the character based on the roll of the dice.
+     *
+     * @throws CharacterOutOfBoardException If the character moves out of the board.
+     */
+
     public void move() throws CharacterOutOfBoardException {
         int steps = dice.roll();
         System.out.println("You rolled a " + steps);
 
         if (board.getPlayerPosition() + steps >= board.getBoardSize()) {
-            throw new CharacterOutOfBoardException("The character has moved outoff board");
+            throw new CharacterOutOfBoardException("The character has moved out off board");
         } else {
             board.movePlayer(steps);
         }

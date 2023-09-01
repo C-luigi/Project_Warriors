@@ -1,4 +1,4 @@
-package fr.cnalps.pw.boardgame.crate;
+package fr.cnalps.pw.boardgame.crate.equipment;
 
 import fr.cnalps.pw.boardgame.Square;
 

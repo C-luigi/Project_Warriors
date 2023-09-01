@@ -1,7 +1,7 @@
-package fr.cnalps.pw.boardgame.crate.potion;
+package fr.cnalps.pw.boardgame.crate.potion.healthpotion;
 
 import fr.cnalps.pw.boardgame.Square;
-import fr.cnalps.pw.boardgame.crate.Potion;
+import fr.cnalps.pw.boardgame.crate.potion.Potion;
 import fr.cnalps.pw.character.Character;
 
 public class GreatHealPotion extends Potion {

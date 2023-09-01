@@ -11,42 +11,59 @@ import fr.cnalps.pw.exception.MenuException;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Provides methods related to the game's menu system including character creation,
+ * character modification, and more.
+ */
+
 public class Menu {
 
     /**
-     * method which write a menu with 3 option
+     * Displays a menu with four options to the console.
      */
+
     public void printOption() {
+        System.out.println("0. Create an character");
         System.out.println("1. Choice an character");
         System.out.println("2. start the game");
         System.out.println("3. left the game");
     }
 
     /**
-     * method which read the keyboard input type int
+     * Reads an integer input from the console.
+     *
+     * @return The integer value entered by the user.
      */
+
     public int readInputInt() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
 
     /**
-     * method which read the keyboard input type String
+     * Reads a String input from the console.
+     *
+     * @return The string value entered by the user.
      */
+
     public String readInputString() {
         Scanner scanner = new Scanner(System.in);
         return scanner.next();
     }
 
     /**
-     * method which allows of choice an character retrieved from a database
+     * Enables the user to choose a character retrieved from the database.
+     *
+     * @return The selected character object.
+     * @throws MenuException Thrown if there's an error fetching heroes from the database.
      */
+
     public Character choiceCharacter() throws MenuException {
-        List<Character> characterList = null;
+        List<Character> characterList;
         try {
             characterList = HeroDatabase.getInstance().getHeroes();
         } catch (DatabaseException e) {
-            throw new MenuException("Error fetching heroes from database", e);
+            throw new MenuException("Error fetching heroes from database the menu can't be load", e);
         }
         System.out.println("1: Warrior 2: Magician");
         int characterType = this.readInputInt();
@@ -64,19 +81,22 @@ public class Menu {
     }
 
     /**
-     * method which allows of create a new character
+     * Provides an interactive method for creating a character based on user input.
+     *
+     * @return The created character object.
      */
+
     public Character createCharacter(){
         System.out.println("1: Warrior 2: Magician");
         int characterType = this.readInputInt();
         Character character = null ;
         if (characterType == 1) {
             character = this.createWarrior();
-            character = handleCharacterSheet(character);
+            character = menuModifyCharacter(character);
         }
         else if (characterType == 2) {
             character = this.createMagician();
-            character = handleCharacterSheet(character);
+            character = menuModifyCharacter(character);
         }
         else {
             System.out.println("Invalid option. Please try again");
@@ -84,7 +104,14 @@ public class Menu {
         return character;
     }
 
-    public Character handleCharacterSheet(Character character) {
+    /**
+     * Displays a menu allowing modification of the specified character.
+     *
+     * @param character The character to be modified.
+     * @return The modified character object.
+     */
+
+    public Character menuModifyCharacter(Character character) {
         if (character instanceof Warrior || character instanceof Magician) {
             int seeSheet;
             do {
@@ -108,6 +135,12 @@ public class Menu {
         }
     }
 
+    /**
+     * Enables user to create a warrior character based on user input.
+     *
+     * @return The created warrior object.
+     */
+
     public Warrior createWarrior() {
         System.out.println("Enter the name of Warrior:");
         String name = this.readInputString();
@@ -129,6 +162,12 @@ public class Menu {
 
         return new Warrior(name, healthPoints, strongPoints, new DefaultFist());
     }
+
+    /**
+     * Enables user to create a magician character based on user input.
+     *
+     * @return The created magician object.
+     */
 
     public Magician createMagician() {
         System.out.println("Enter the name of the Magician:");
@@ -152,6 +191,12 @@ public class Menu {
 
         return new Magician(name, healthPoints, strongPoints, new DefaultFist());
     }
+
+    /**
+     * Allows users to modify the attributes of an existing character.
+     *
+     * @param character The character to be modified.
+     */
 
     public void modifyCharacter(Character character) {
         System.out.println(

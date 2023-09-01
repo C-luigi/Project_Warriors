@@ -6,9 +6,14 @@ import java.util.List;
 import java.util.ArrayList;
 
 import fr.cnalps.pw.boardgame.crate.DefaultFist;
-import fr.cnalps.pw.boardgame.crate.Equipment;
+import fr.cnalps.pw.boardgame.crate.equipment.Equipment;
 import fr.cnalps.pw.character.Character;
 import fr.cnalps.pw.exception.DatabaseException;
+
+/**
+ * This class manages database connections, fetches hero data, and closes the connection when done.
+ * Singleton implementation for database operations related to hero entities.
+ */
 
 public class HeroDatabase {
 
@@ -19,6 +24,14 @@ public class HeroDatabase {
     private static Connection connection;         // Connexion à la base de données
 
     // Constructeur privé pour empêcher l'instanciation de plusieurs fr.campusnumerique.pw.database.HeroDatabase
+
+    /**
+     * Private constructor to prevent multiple instances.
+     * Establishes a connection with the database.
+     *
+     * @throws DatabaseException If there's an error during the database connection initialization.
+     */
+
     private HeroDatabase() throws DatabaseException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -29,12 +42,27 @@ public class HeroDatabase {
     }
 
     // Méthode pour obtenir l'instance Singleton de fr.campusnumerique.pw.database.HeroDatabase
+
+    /**
+     * Provides access to HeroDatabase.
+     *
+     * @return The single instance of HeroDatabase.
+     * @throws DatabaseException If there's an error initializing the database connection.
+     */
+
     public static HeroDatabase getInstance() throws DatabaseException {
         if (instance == null) {
             instance = new HeroDatabase();
         }
         return instance;
     }
+
+    /**
+     * Generate a list of hero characters from the database.
+     *
+     * @return A list of hero characters.
+     * @throws DatabaseException If there's an error fetching heroes from the database.
+     */
 
     public List<Character> getHeroes() throws DatabaseException {
         List<Character> characterList = new ArrayList<>();
@@ -64,9 +92,11 @@ public class HeroDatabase {
     }
 
     /**
-     * Méthode pour fermer la connexion lorsqu'elle n'est plus nécessaire
-     * @throws DatabaseException
+     * Closes the database connection when it's no longer needed.
+     *
+     * @throws DatabaseException If there's an error while trying to close the database connection.
      */
+
     public static void closeConnection() throws DatabaseException {
         try {
             if (connection != null && !connection.isClosed()) {
