@@ -1,6 +1,6 @@
 package fr.cnalps.pw.game;
 
-import fr.cnalps.pw.boardgame.crate.DefaultFist;
+import fr.cnalps.pw.boardgame.crate.equipment.DefaultFist;
 import fr.cnalps.pw.character.Character;
 import fr.cnalps.pw.character.Magician;
 import fr.cnalps.pw.character.Warrior;

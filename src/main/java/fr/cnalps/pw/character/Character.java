@@ -12,7 +12,7 @@ public abstract class Character {
     protected int healthPoints;
     protected int strongPoints;
     
-    protected Equipment equipment;
+    private Equipment equipment;
 
     /**
      * Default constructor initializing the character with default attributes.
@@ -73,9 +73,21 @@ public abstract class Character {
         this.strongPoints = strongPoints;
     }
 
+
+    /**
+     * Retrieves the Warrior's equipment.
+     *
+     * @return The equipment of the Warrior.
+     */
     public Equipment getEquipment() {
         return equipment;
     }
+
+    /**
+     * Sets or updates the Warrior's equipment.
+     *
+     * @param equipment The new equipment to be assigned to the Warrior.
+     */
 
     public void setEquipment(Equipment equipment) {
         this.equipment = equipment;
@@ -92,6 +104,6 @@ public abstract class Character {
                 "Character:" + '\n' +
                 name +
                 "; HP = " + healthPoints +
-                "; SP = " + strongPoints;
+                "; SP = " + strongPoints + '\n' + equipment;
     }
 }

@@ -2,14 +2,14 @@ package fr.cnalps.pw.boardgame.crate;
 
 import fr.cnalps.pw.boardgame.Square;
 import fr.cnalps.pw.boardgame.crate.equipment.Equipment;
-import fr.cnalps.pw.boardgame.crate.equipment.magicianequipment.FireBall;
-import fr.cnalps.pw.boardgame.crate.equipment.magicianequipment.Lightning;
-import fr.cnalps.pw.boardgame.crate.potion.healthpotion.Potion;
-import fr.cnalps.pw.character.Character;
-import fr.cnalps.pw.boardgame.crate.potion.healthpotion.GreatHealPotion;
-import fr.cnalps.pw.boardgame.crate.potion.healthpotion.SmallHealPotion;
 import fr.cnalps.pw.boardgame.crate.equipment.warriorequipment.Sledgehammer;
 import fr.cnalps.pw.boardgame.crate.equipment.warriorequipment.Sword;
+import fr.cnalps.pw.boardgame.crate.equipment.magicianequipment.FireBall;
+import fr.cnalps.pw.boardgame.crate.equipment.magicianequipment.Lightning;
+import fr.cnalps.pw.boardgame.crate.potion.Potion;
+import fr.cnalps.pw.boardgame.crate.potion.healthpotion.GreatHealPotion;
+import fr.cnalps.pw.boardgame.crate.potion.healthpotion.SmallHealPotion;
+import fr.cnalps.pw.character.Character;
 
 import java.util.Random;
 import java.util.ArrayList;

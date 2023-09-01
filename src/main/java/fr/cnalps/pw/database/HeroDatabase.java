@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 
-import fr.cnalps.pw.boardgame.crate.DefaultFist;
+import fr.cnalps.pw.boardgame.crate.equipment.DefaultFist;
 import fr.cnalps.pw.boardgame.crate.equipment.Equipment;
 import fr.cnalps.pw.character.Character;
 import fr.cnalps.pw.exception.DatabaseException;
@@ -18,8 +18,7 @@ import fr.cnalps.pw.exception.DatabaseException;
 public class HeroDatabase {
 
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/db_projectwarriors";
-    private static final String JDBC_USER = "Cluigi";
-    private static final String JDBC_PASSWORD = "0601";
+
     private static HeroDatabase instance;  // Instance Singleton
     private static Connection connection;         // Connexion à la base de données
 
@@ -34,8 +33,10 @@ public class HeroDatabase {
 
     private HeroDatabase() throws DatabaseException {
         try {
+            // lire un fichier .env (FileInputStream)
+            // Charger dans un Properties
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
+            connection = DriverManager.getConnection(JDBC_URL, "JDBC_USER", "JDBC_PASSWORD");
         } catch (Exception e) {
             throw new DatabaseException("Error initializing the database connection", e);
         }
